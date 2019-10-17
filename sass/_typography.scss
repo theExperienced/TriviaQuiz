@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins|Bitter|Raleway|PT+Sans+Narrow|Zhi+Mang+Xing&display=swap');
+
+.primary-title {
+
+    @extend %welcome-typography;
+    font-size: 7rem;
+    word-spacing: 1.5rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 1px 1px 1px rgba(122, 55, 185, .8);
+}
+
+.welcome__secondary-title {
+
+    @extend %welcome-typography;
+    font-size: 3rem;
+    font-weight: 100;
+    margin-bottom: 7rem;
+    font-style: italic;
+    color: rgba(0, 0, 0, .4);
+}
+
+.welcome__preferences-paragraph {
+    
+    @extend %welcome-typography;
+    font-size: 2rem;
+    font-weight: 100;
+    color: rgba(0, 0, 0, 0.6);
+    // margin-bottom: 6rem;
+}
+
+.record-history__heading {
+    
+}
+
+.record-history__list {
+    
+}
+
+.record-history__item {
+    
+}

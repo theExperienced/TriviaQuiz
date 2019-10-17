@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+    <style>
+
+        
+
+
+
+        
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="loading-modal">
+        <span class="loading-modal__spinner"></span>
+    </div>
+    <div class="outer-container">
+        
+            <input type="checkbox" class="menu__toggle--input" id="menu-toggle">
+            <label for="menu-toggle" class="menu__toggle--label">
+                <span class="menu__stripe--top"></span>
+                <span class="menu__stripe--middle"></span>
+                <span class="menu__stripe--bottom"></span>
+            </label>
+            <ul class="menu__actual">
+                <li class="menu__item"><a href="#" class="menu__link menu__link--new-session">New Session</a></li>
+                <li class="menu__item"><a href="#" class="menu__link menu__link--change-category">Change Category</a></li>
+                <li class="menu__item"><a href="#" class="menu__link menu__link--record-history">Record History</a></li>
+                <li class="menu__item"><a href="#" class="menu__link menu__link--tell-a-friend">Tell A Friend</a></li>
+            </ul>
+       
+        <div class="inner-container">
+            <div class="inner-container__resume-session">
+                <svg class="inner-container__resume-session-icon">
+                    <use xlink:href="img/sprite.svg#icon-reply"></use>
+                </svg>
+            </div>
+            <h1 class="primary-title">the ultimate trivia</h1>
+            <div class="content">
+                    <div class="content-container">
+                    <div class="section section-displayed welcome">
+                        <h2 class="welcome__secondary-title">Find out if your upbringing was top notch and you have no life</h2>
+                        <p class="welcome__preferences-paragraph">Choose your prefereneces</p>
+                        <div class="welcome__form-container">
+                            <div class="welcome__button-container">
+                                <button class="setup-form__submit">Begin</button>
+                            </div>
+                            <form action="" class="setup-form" id="setup-form">
+                                <div class="setup-form__group setup-form__group--category">
+                                    <label for="" class="setup-form__label setup-form__label--category">Category</label>
+                                    <div class="setup-form__ select custom-select custom-select--category">
+                                        <select class="custom-select__actual-select setup-form__select setup-form__select--category" data-query="category">
+                                            <option value="">General</option>
+                                        </select>
+                                        <div class="custom-select__selected"></div>
+                                        <div class="custom-select__items select-items-collapsed"></div>
+                                    </div>
+                                </div>
+                                <div class="setup-form__group setup-form__group--num">
+                                    <label for="" class="setup-form__label setup-form__label--num">Number of questions</label>
+                                    <input type="number" min="10" max="50" class="setup-form__field setup-form__field--num" required data-query="amount">
+                                </div>
+                                <div class="setup-form__group setup-form__group--difficulty">
+                                    <label for="" class="setup-form__label setup-form__label--difficulty">Difficulty</label>
+                                    <div class="setup-form__ select custom-select custom-select--difficulty">
+                                        <select class="custom-select__actual-select setup-form__select setup-form__select--difficulty" data-query="difficulty">
+                                            <option value="easy">Easy</option>
+                                            <option value="medium">Medium</option>
+                                            <option value="difficult">Difficult</option>
+                                        </select>
+                                        <div class="custom-select__selected"></div>
+                                        <div class="custom-select__items select-items-collapsed"></div>
+                                    </div>
+                                </div>
+                                <div class="setup-form__group setup-form__group--type">
+                                    <label for="" class="setup-form__label setup-form__label--type">Type</label>
+                                    <div class="setup-form__ select custom-select custom-select--type">
+                                        <select class="custom-select__actual-select setup-form__select setup-form__select--type" data-query="type">
+                                            <option value="boolean">Yes No Questions</option>
+                                            <option value="multiple">Multiple Choice</option>
+                                            <option value="">Both</option>
+                                        </select>
+                                        <div class="custom-select__selected"></div>
+                                        <div class="custom-select__items select-items-collapsed"></div>
+                                    </div>
+                                    
+                            
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                    <div class="section section-undisplayed gameplay">
+
+                        <h2 class="gameplay__question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, mollitia.</h2>
+                        <div class="gameplay__answers">
+                             <!-- <div class="gameplay__radio-group">
+                                <input type="radio" class="gameplay__answer-radio" id="1" name="sameGroup">
+                                <label for="1" class="gameplay__answer-label">
+                                    <span class="gameplay__answer-pseudo-radio"></span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
+                                </label>
+                            </div>
+                            <div class="gameplay__radio-group">
+                                <input type="radio" class="gameplay__answer-radio" id="2" name="sameGroup">
+                                <label for="2" class="gameplay__answer-label">
+                                    <span class="gameplay__answer-pseudo-radio"></span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
+                                </label>
+                            </div>
+                            <div class="gameplay__radio-group">
+                                <input type="radio" class="gameplay__answer-radio" id="3" name="sameGroup">
+                                <label for="3" class="gameplay__answer-label">
+                                    <span class="gameplay__answer-pseudo-radio"></span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
+                                </label>
+                            </div>
+                            <div class="gameplay__radio-group">
+                                <input type="radio" class="gameplay__answer-radio" id="4" name="sameGroup">
+                                <label for="4" class="gameplay__answer-label">
+                                    <span class="gameplay__answer-pseudo-radio"></span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
+                                </label>
+                            </div> -->
+                            
+                        </div>
+                        <!-- <div class="gameplay__answers gameplay__answers--boolean"></div> -->
+                        <div class="gameplay__control">
+                            <button class="gameplay__prev-question"></button>
+                            <div class="gameplay__go-to-question-container">
+                                <label for="" class="gameplay__go-to-question-label">Go to question</label>
+                                <input type="text" class="gameplay__go-to-question-input">
+                                <button class="gameplay__go-to-question-button">Go</button>
+                            </div>
+                            <button class="gameplay__next-question"></button>
+                            <button class="gameplay__im-done">I'm Done</button>
+                        </div>
+                        
+                    </div>
+                    <div class="section section-undisplayed record-history">
+                        <h2 class="record-history__heading">Bask in your past achievements</h2>
+                        <ul class="record-history__list"></ul>
+
+                    </div>
+                </div>
+            </div>
+           
+
+            </div>
+            
+        </div>
+    </div>
+    
+    <script>
+
+        let sessionToken = null;
+        let gameIsOn = false;
+        const loadingModal = document.querySelector('.loading-modal');
+        
+        const menuToggle = document.querySelector('.menu__toggle--input');
+        const menuNewSession = document.querySelector('.menu__link--new-session');
+        const menuRecordHistory = document.querySelector('.menu__link--record-history');
+
+        const innerContainer = document.querySelector('.inner-container');
+        const welcome = document.querySelector('.welcome');
+        
+        const setupFormProper = document.querySelector('.setup-form');
+        const setupFormGroups = document.querySelectorAll('.setup-form__group');
+        const categoryIDOffset = 9;
+        const categoryCustomSelect = document.querySelector('.custom-select--category');
+        const categoryActualSelect = document.querySelector('.setup-form__select--category');
+        const numOfQuestionsField = document.querySelector('.setup-form__field--num');
+        const difficultyCustomSelect = document.querySelector('.custom-select--difficulty');
+        const difficultyActualSelect = document.querySelector('.setup-form__select--difficulty');
+        const typeCustomSelect = document.querySelector('.custom-select--type');
+        const typeActualSelect = document.querySelector('.setup-form__select--type');
+        let currentlyUsedCustomSelect = null;
+
+        const customSelectArray = [categoryCustomSelect, difficultyCustomSelect, typeCustomSelect];
+        const setupFormSubmit = document.querySelector('.setup-form__submit');
+
+        const gameplay = document.querySelector('.gameplay');
+        let questionTitle = document.querySelector('.gameplay__question');
+        const gameplayAnswers = document.querySelector('.gameplay__answers');
+        let gameplayAnswerRadios;
+        const gameplayControlPreviousQuestion = document.querySelector('.gameplay__prev-question');
+        const gameplayControlGoToQuestionInput = document.querySelector('.gameplay__go-to-question-input');
+        const gameplayControlGoToQuestionButton = document.querySelector('.gameplay__go-to-question-button');
+        const gameplayControlNextQuestion = document.querySelector('.gameplay__next-question');
+        const gameplayControlImDone = document.querySelector('.gameplay__im-done');
+
+        const recordHistory = document.querySelector('.record-history');   
+        const recordHistoryHeading = document.querySelector('.record-history__heading');   
+        const recordHistoryList = document.querySelector('.record-history__list');        
+
+        let currentlyDisplayed = welcome;
+
+        let currentQuestionBatch;
+        let currentQuestionNumber = 0;
+        let currentQuestion;
+        let currentCorrectAnswers;
+
+        let userRecordHistory = fetchUserRecordHistory();
+        console.log(userRecordHistory, 'userrecordhistorYYYYYYYYYYYYYYYYYYYYYYYYYy');
+        let userAnswers;
+        
+
+        document.addEventListener('DOMContentLoaded', (e) => {
+            
+            // console.log(welcome)
+            // let welcomeFadedOutObserver = new MutationObserver(function() {
+
+            //     for (let mutation in mutationList) {
+
+            //         console.log(mutation)
+            //     }
+
+
+
+            //     welcomeFadedOutObserver.disconnect();
+            // });
+
+
+            // welcomeFadedOutObserver.observe(welcome, {
+            //     attributes: true,
+            //     attributeFilter: 'style'
+            // });
+
+
+
+            fetch('https://opentdb.com/api_token.php?command=request').
+            then(response => response.json()).
+            then(result => {
+                sessionToken = result.token;
+                console.log(sessionToken);
+            }).then(() => {
+
+                let url = `https://opentdb.com/api.php?amount=10`;
+                // let url = `https://opentdb.com/api.php?amount=20`;
+                // url += `token=${sessionToken}`;
+                console.log(url)
+                fetch(url).then(response => response.json()).then(result => {
+                    
+                    currentQuestionBatch = result.results;
+                    currentCorrectAnswers = currentQuestionBatch.map(question => question.correct_answer);
+                    console.log(currentCorrectAnswers, 'currentCorrectAnswers')
+                    userAnswers = new Array(currentQuestionBatch.length);
+                    // welcomeContainer.classList.add('welcome--shifted');
+                    // fadeOutWelcome();
+                     //maybe needs to go one level up!!!!
+                    console.log('questions ', currentQuestionBatch)
+                    prepareNextQuestion(0);
+                });
+                
+                
+
+
+            })
+
+
+
+                
+
+
+
+
+            
+        });
+
+        document.addEventListener('click', function(e) {
+            // if (currentlyUsedCustomSelect != null && !e.target.classList.contains('custom-select__selected')){
+            //     console.log('clicked on selected item')
+            //     currentlyUsedCustomSelect.nextElementSibling.classList.add('select-items-collapsed');
+            //     currentlyUsedCustomSelect = null;
+            }
+        });
+
+        menuRecordHistory.addEventListener('click', function() {
+            switchDisplays(currentlyDisplayed, recordHistory);
+            buildAndDisplayRecordHistory();
+        });
+
+        menuNewSession.addEventListener('click', function() {
+            switchDisplays(currentlyDisplayed, welcome);
+            prepareNextQuestion(0);
+        });
+
+        innerContainer.addEventListener('click', function(e) {
+            if (menuToggle != e.target && menuToggle.checked == true) {
+                menuToggle.checked = false;
+            }
+        });
+
+        // welcome.addEventListener('transitionend', function() {
+        //     console.log('aniamtion endeded');
+        //     initGameplay();
+        // });
+
+        //observe 'welcome' faded out ---> init gameplay
+
+        
+        
+        // welcome.addEventListener('transitionend', function() {
+        //     console.log('aniamtion endeded');
+        //     initGameplay();
+        // });
+
+        setupFormGroups.forEach(function(setupFormGroup){
+            setupFormGroup.addEventListener('mouseleave', function() {
+                if (currentlyUsedCustomSelect != null) {
+                    currentlyUsedCustomSelect.nextElementSibling.classList.add('select-items-collapsed');
+                    currentlyUsedCustomSelect = null;
+                }
+            });
+        })
+
+        setupFormSubmit.addEventListener('click', function(e) {
+                // e.preventDefault();                                              //take care of that!!!!
+            if (numOfQuestionsField.value.trim().length != 0) {
+                let url = `https://opentdb.com/api.php?`;
+                for (let field of [categoryActualSelect, numOfQuestionsField, difficultyActualSelect, typeActualSelect]) {
+                    if (field.value) {
+                        url += `${field.dataset.query}=${field.value.toLowerCase()}&`
+                    }
+                }
+                url += `token=${sessionToken}`;
+                console.log(url)
+                fetch(url).then(response => response.json()).then(result => {
+                    currentQuestionBatch = result.results;
+                    currentCorrectAnswers = currentQuestionBatch.map(question => question.correct_answer);
+                    userAnswers = new Array(currentQuestionBatch.length);
+                    // welcomeContainer.classList.add('welcome--shifted');
+                    // fadeOutWelcome();
+
+                    // initGameplay();
+
+                    switchDisplays(welcome, gameplay);
+                    gameIsOn = true;
+                    prepareNextQuestion(0);
+                    currentlyDisplayed = gameplay;
+                     //maybe needs to go one level up!!!!
+                    console.log('questions ', currentQuestionBatch)
+                });
+                
+                
+            }
+        });
+
+        (customSelectArray.map(customSelect => customSelect.children[1])).forEach(selectedItem => {
+            selectedItem.addEventListener('click', (e) => {
+                selectedItem.nextElementSibling.classList.toggle('select-items-collapsed');
+                if (currentlyUsedCustomSelect === null) {
+                    currentlyUsedCustomSelect = selectedItem;
+                }else if (currentlyUsedCustomSelect === selectedItem){
+                    currentlyUsedCustomSelect = null;
+                }else {
+                    currentlyUsedCustomSelect.nextElementSibling.classList.add('select-items-collapsed');
+                    currentlyUsedCustomSelect = selectedItem;
+                }
+                e.stopPropagation();
+            });
+        });
+
+        gameplayControlPreviousQuestion.addEventListener('click', function(){
+            currentQuestionNumber = currentQuestionNumber - 1;
+            prepareNextQuestion(currentQuestionNumber);
+        });
+
+        gameplayControlGoToQuestionButton.addEventListener('click', function(){
+            const desiredQuestionNumber = gameplayControlGoToQuestionInput.value.trim();
+            console.log('desiredQuestionNumber', desiredQuestionNumber);
+            if (desiredQuestionNumber.length != 0 && desiredQuestionNumber > 0 && desiredQuestionNumber <= currentQuestionBatch.length) {
+                currentQuestionNumber = desiredQuestionNumber -1;
+                prepareNextQuestion(currentQuestionNumber);
+                gameplayControlGoToQuestionInput.value = "";
+            }
+        });
+
+        gameplayControlNextQuestion.addEventListener('click', function(){
+            currentQuestionNumber = currentQuestionNumber + 1;
+            prepareNextQuestion(currentQuestionNumber);
+        });
+
+        gameplayControlImDone.addEventListener('click', function() {
+            if (userAnswers.filter( answer => answer === undefined).length == 0) {
+                gameIsOn = false;
+                verifyCorrectAnswersAndCalcScore();
+            }else {
+                this.classList.add('gameplay_im-done--showing-error');
+                setTimeout(() => {
+                    this.classList.remove('gameplay_im-done--showing-error');
+                }, 6000);
+            }
+        });
+
+        async function retrieveSessionToken() {
+            fetch('https://opentdb.com/api_token.php?command=request')
+            .then(response => response.json())
+            .then(result => {
+                sessionToken = result.token;
+                console.log(sessionToken);
+            }).catch(err => console.log(error)) // still needs to handle error!!!
+        }
+
+        async function loadCategoryOptions() {
+            fetch('https://opentdb.com/api_category.php')
+            .then(response => response.json())
+            .then(categories => {
+                categories = [...categories.trivia_categories].map(category => [category.name, category.id]);
+                categories.forEach((category, index) =>  {
+                    if (category[0].startsWith('Entertainment:')) {
+                        category[0] = category[0].replace('Entertainment:','')
+                    }else if (category[0].startsWith('Science:')) {
+                        category[0] = category[0].replace('Science:','')
+                    }
+                    category[0] = category[0].trim();
+                });
+                console.log(categories)
+                let selectInnerHTML = "";
+                categories.forEach(category => {
+                    selectInnerHTML += `<option value="${category[1]}">${category[0]}</option>`;
+                });
+                categoryActualSelect.innerHTML += selectInnerHTML;
+            
+                setupDropdownSelect(categoryActualSelect, categoryCustomSelect);
+                setupDropdownSelect(difficultyActualSelect, difficultyCustomSelect);
+                setupDropdownSelect(typeActualSelect, typeCustomSelect);
+
+
+           }).then(() => {
+               
+                loadingModal.classList.add('disabled');
+           });
+
+        }
+
+        function setUpPage() {
+            retrieveSessionToken();
+            loadCategoryOptions();
+        }
+
+        setUpPage()
+
+        function fetchUserRecordHistory() {
+            let recordHistoryAsJSON = localStorage.getItem("recordHistory");
+            return recordHistoryAsJSON ? JSON.parse(recordHistoryAsJSON) : new Array(10);
+        }
+
+        function setupDropdownSelect(actualSelect, customSelect) {
+            let options = actualSelect.options;
+            let customSelectItems = customSelect.lastElementChild;
+            let selectedItem = customSelect.children[1];
+            let newItem;
+            for (let i = 0; i < actualSelect.length; i++) {
+                newItem = document.createElement('div');
+                newItem.classList.add('custom-select__item');
+                newItem.id = i -1 + categoryIDOffset;
+                newItem.innerHTML = options[i].innerHTML;
+                newItem.addEventListener('click', function(e) {
+                    actualSelect.value = this.id;
+                    selectedItem.innerHTML = this.innerHTML;
+                    customSelectItems.classList.add('select-items-collapsed');
+                    // e.stopPropagation();
+                });
+                if (i ===0 ) {
+                    newItem.id="";
+                    selectedItem.innerHTML = newItem.innerHTML
+                }
+                customSelectItems.appendChild(newItem);
+            }
+        }
+
+        function switchDropdownArrow(isCollapsed) {
+            if (isCollapsed) {
+                currentlyUsedCustomSelect.classList.add('custom-select__selected--down');
+            }else {
+                
+            }
+        };
+
+        function switchDisplays(leavingSection, enteringSection) {
+            if (enteringSection != leavingSection) {
+                leavingSection.classList.remove('section-displayed');
+                leavingSection.classList.add('section-undisplayed');
+                enteringSection.classList.remove('section-undisplayed');
+                enteringSection.classList.add('section-displayed');
+                currentlyDisplayed = enteringSection;
+                menuToggle.checked = false;
+            }
+        }
+        // function fadeOutWelcome() {
+        //     welcome.classList.add('welcome--fadeout');
+            
+        // }
+
+        // function initGameplay() {
+        //     gameplay.classList.add('gameplay--appear-after-preferences-setup');
+        //     gameplay.classList.add('section-displayed');
+        //     prepareNextQuestion(0);
+        // }
+
+        function prepareNextQuestion(questionNumber) {
+            console.log('inside prepaering next queewestion', currentQuestionBatch)
+            gameplayAnswers.innerHTML = "";
+            currentQuestion = currentQuestionBatch[questionNumber];
+
+            questionTitle.innerHTML = `#${questionNumber + 1} ${currentQuestion.question}`;
+
+            const correctAnswerInsertIndex = Math.floor(Math.random() * (1 + currentQuestion.incorrect_answers.length));
+            const allAnswers = [...(currentQuestion.incorrect_answers)];
+            allAnswers.splice(correctAnswerInsertIndex, 0, currentQuestion.correct_answer);
+            
+            console.log(allAnswers);
+            let radioGroup, radio, answer, pseudoRadio;
+            for ( i=0 ; i<allAnswers.length ; i++ ) {
+                console.log('inside foor loop for creating answers')
+                radioGroup = document.createElement('div');
+                radioGroup.className = `gameplay__radio-group gameplay__radio-group-${i}`;
+
+                radio = document.createElement('input');
+                radio.className = "gameplay__answer-radio"
+                radio.type = "radio";
+                radio.name = "sameGroup";
+                radio.id = `${i}`;
+
+                answer = document.createElement('label');
+                answer.className = 'gameplay__answer-label';
+                answer.htmlFor = `${i}`;
+
+                pseudoRadio = document.createElement('span');
+                pseudoRadio.className = 'gameplay__answer-pseudo-radio';
+
+                answer.appendChild(pseudoRadio);
+                answer.innerHTML += allAnswers[i];
+
+                radioGroup.appendChild(radio);
+                radioGroup.appendChild(answer);
+
+                console.log(radioGroup)
+                gameplayAnswers.appendChild(radioGroup);
+
+                gameplayAnswerRadios = document.querySelectorAll('.gameplay__answer-radio');
+                takeCareOfAnswerRadioBehavior();
+            }
+
+            console.log(currentQuestionNumber)
+            if (currentQuestionNumber == 0) {
+                gameplayControlPreviousQuestion.classList.add('gameplay__prev-next-question--disabled');
+                gameplayControlNextQuestion.classList.remove('gameplay__prev-next-question--disabled');
+            }else if (currentQuestionNumber == currentQuestionBatch.length - 1) {
+                gameplayControlPreviousQuestion.classList.remove('gameplay__prev-next-question--disabled');
+                gameplayControlNextQuestion.classList.add('gameplay__prev-next-question--disabled');
+            }else {
+                gameplayControlPreviousQuestion.classList.remove('gameplay__prev-next-question--disabled');
+                gameplayControlNextQuestion.classList.remove('gameplay__prev-next-question--disabled');
+            }
+
+            if (userAnswers[questionNumber] != undefined) {
+                let radioToBeChecked = userAnswers[questionNumber][1];
+                gameplayAnswers.children[radioToBeChecked].firstElementChild.checked = true;
+                console.log( gameplayAnswers.children, 'radioToBeChecked')
+                console.log( gameplayAnswers.children[radioToBeChecked], 'type odf radi oid')
+            }
+           
+
+
+
+        }
+
+        function takeCareOfAnswerRadioBehavior() {
+
+            gameplayAnswers.addEventListener('change', function(e) {
+                const answerRadioAtQuestion = e.target;
+                if (answerRadioAtQuestion.checked == true) {
+                    console.log(answerRadioAtQuestion.nextElementSibling.childNodes[1]);
+                    userAnswers[currentQuestionNumber] = [answerRadioAtQuestion.nextElementSibling.childNodes[1].textContent, answerRadioAtQuestion.id];
+                    console.log(userAnswers[currentQuestionNumber] , 'entered answer');
+                }
+            });
+        }
+
+        function verifyCorrectAnswersAndCalcScore() {
+            console.log('claculating score')
+            let absScore = 0;
+            let scoreInPercentage;
+            for (i=0 ; i<currentQuestionBatch.length ; i++) {
+                console.log(typeof userAnswers[i][0], typeof currentCorrectAnswers[i],'currently iterated user answrr');
+                if (userAnswers[i][0] == currentCorrectAnswers[i]) {
+                    absScore += 1;
+                }
+            }
+            scoreInPercentage = Math.floor(absScore / currentQuestionBatch.length * 100);
+            console.log(scoreInPercentage, 'scoreInPercentage');
+            decideIfGoesInRecordHistory(scoreInPercentage);
+        }
+
+        function decideIfGoesInRecordHistory(newScoreInPercentage) {
+            if (userRecordHistory.filter(record => record === null).length > 0 || userRecordHistory[10] < newScoreInPercentage) {
+                console.log('INDEED GOES INSIDE RECOERD HISTORY');
+                let insertIndex = 0;
+                while (insertIndex < 10/* && userRecordHistory[insertIndex + 1] != undefined*/) {
+                    console.log('inside while!!!!')
+                    if (newScoreInPercentage > userRecordHistory[insertIndex]) {
+                        console.log("new in top ten");
+                        userRecordHistory.splice(insertIndex, 0, newScoreInPercentage);
+                        userRecordHistory.pop();
+                        console.log('edited record history', userRecordHistory);
+                        break;
+                    }
+                    insertIndex += 1;
+                }
+                if (insertIndex == 0) {
+                        console.log("new in first place");
+                    announceNewRecord()
+                }
+                saveToLocalStorage()
+            }
+        }
+
+        function saveToLocalStorage() {
+            console.log('saving to local storage');
+            let userRecordHistoryAsJSON = JSON.stringify(userRecordHistory);
+            localStorage.setItem("recordHistory", userRecordHistoryAsJSON);
+        }
+
+        function announceNewRecord() {
+
+        }
+
+        function buildAndDisplayRecordHistory() {
+            const userNonNullRecords = userRecordHistory.filter(record => record != undefined);
+            if (userNonNullRecords.length === 0) {
+                console.log('userNonNullRecords.length === 0')
+                recordHistoryHeading.innerHTML = "You have no scores yet";
+            }else {
+                recordHistoryHeading.innerHTML = "Bask in your past achievements";
+                console.log(userNonNullRecords, 'userNonNullRecordsssss ')
+                let recordItem;
+                for( i=0 ; i<userNonNullRecords.length ; i++) {
+                    recordItem = document.createElement('li');
+                    recordItem.className = "record-history__item";
+                    recordItem.innerHTML = `${userNonNullRecords[i]}%`;
+                    recordHistoryList.appendChild(recordItem);
+                }
+            }
+        }
+
+
+        
+
+        // function collapseCustomSelect(customSelect){
+        //     customSelect.lastElementChild.classList.add('select-items-collapsed');
+        //     currentlyUsedCustomSelect = null;
+        // }
+        
+        // customSelectArray.forEach(function(customSelect) {
+        //     customSelect.addEventListener('click', function(){
+        //         console.log('custom select clicked')
+        //         // customSelect.lastElementChild.classList.toggle('select-items-collapsed');
+        //     })
+        // });
+
+        
+
+
+    </script>
+    
+</body>
+</html>

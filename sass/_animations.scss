@@ -1,0 +1,16 @@
+@keyframes spinning {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hover-in-air {
+    from {
+        transform: translateY(-1.1rem) rotateX(15deg) rotateY(-30deg);
+    }to {
+        transform: translateY(1.1rem) rotateX(15deg) rotateY(-30deg);
+    }
+}

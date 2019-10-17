@@ -1,0 +1,107 @@
+.menu {
+
+    &__actual {
+        width: 50%;
+        height: 100%;
+        padding: 7rem 5.5rem;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-end;
+
+        // background: white; 
+    }
+
+    &__toggle {
+
+        &--input {
+            display: none;
+        }
+
+        &--label {
+            position: absolute;
+            z-index: 100;
+            width: 13rem;
+            height: 8rem;
+            box-shadow: 0 0 3rem rgba(0, 0, 0, .7), 0 0 0 1px rgba(0, 0, 0, .15);
+            border-bottom-right-radius: 100%;
+            background:white;
+            display: block;
+            transition: all .15s linear;
+            cursor: pointer;
+        }
+        
+        &--input:checked {
+    
+            & ~ .inner-container {
+                transform: rotateZ(-30deg);
+                // opacity: .5;  
+                filter: brightness(30%);
+                // box-shadow: 0 0 1.1rem .3rem rgb(0, 255, 115), 0 0 1.7rem .7rem rgb(255, 255, 255);
+                box-shadow: inset 0 0 46rem 13rem rgba(0, 0, 0, 0.603), 0 0 2rem 1.5rem rgba(0, 0, 0, .4);
+                // transition: all .3s linear;
+                // filter: blur(3px);
+                // background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(to left, rgb(59, 202, 123), rgb(186, 223, 209));
+            }
+        }
+    }
+
+    &__toggle--input:checked + &__toggle--label {
+        // box-shadow: 3px 3px 4rem .5rem rgb(241, 0, 12), 0 0 5rem 1.8rem rgb(255, 255, 255);
+        background-image: radial-gradient(180% 150% at 0 0, rgb(0, 255, 106) 10%, rgb(28, 206, 102) 35%,rgb(55, 207, 118) 70%);
+        box-shadow: inset -1.2rem -1.2rem 1.5rem -1.3rem rgba(206, 206, 206, 0.7), inset -1.2rem -1.2rem .8rem -.4rem rgba(51, 51, 51, 0.3), 0 0 6rem 1.5rem rgb(255, 255, 255), 0 0 3rem .6rem rgb(0, 230, 96), 0 0 0 1px rgba(0, 0, 0, 0.9);
+    }
+
+    &__toggle--input:checked + &__toggle--label > &__stripe {
+
+        &--top {
+
+            transform: rotate(45deg);
+            top: 36%
+        }
+
+        &--middle {
+            opacity: 0;
+        }
+
+        &--bottom {
+            transform: rotate(-45deg);
+            top: 36%;
+        }
+    }
+
+    &__stripe {
+
+        transition: all .15s linear;
+        
+        &--top {
+            @include menu-toggle-stripe(top);
+        }
+
+        &--middle {
+            @include menu-toggle-stripe(middle);
+        }
+
+        &--bottom {
+            @include menu-toggle-stripe(bottom);
+        }
+    }
+
+    &__item:not(:last-child) {
+        margin-bottom: 4rem;
+    }
+
+    &__link {
+        font-family: 'Raleway', sans-serif;
+        color: rgba(255, 255, 255, 0.971);
+        font-size: 2.5rem;
+        transition: all .15s ease-in;
+
+        &:hover {
+            color: rgb(60, 255, 148);
+            // text-shadow: 1px 1px 3px rgba(255, 255, 255, .9),
+            //              1px 1px 3px rgba(255, 255, 255, .9),
+            //              1px 1px 3px rgba(255, 255, 255, .9),
+            //              1px 1px 3px rgba(255, 255, 255, .9);
+        }
+    }
+}

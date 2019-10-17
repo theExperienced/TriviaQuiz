@@ -1,0 +1,45 @@
+@mixin menu-toggle-stripe($vertical-position) {
+    
+    position: absolute;
+    display: block;
+    height: .3rem;
+    width: 35%;
+    left: 23%;
+    border-radius: 10px;
+    background: rgb(94, 94, 94);
+    transition: all .15s ease-in;
+
+    @if $vertical-position == top {
+        top: 23%;
+        // transform: translate(-50%);
+    }
+    @else if $vertical-position == middle {
+        top: 36%;
+        // transform: translate(-50%, -50%);
+    }
+    @else {
+        top: 49%;
+        // transform: translate(-50%);
+    }
+}
+%welcome-typography {
+    font-family: 'Bitter', serif;
+}
+
+// %welcome-typography {
+//     font-family: 'Bitter', serif;
+// }
+
+// %rotated-setup-form-element--normal {
+    
+
+//     transform: scale(.75) rotateX(10deg) rotateY(5deg);
+// }
+
+// %rotated-setup-form-element--hovered {
+    
+//     z-index:300;
+//     transition: all .15s ease-in;
+//     transform: scale(.9) rotateX(8deg) rotateY(5deg);
+// }
+

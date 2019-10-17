@@ -1,0 +1,87 @@
+.custom-select {
+    
+    position: relative;
+    width: 20rem;
+    height: 4.5rem;
+    border-radius: .8rem;
+    background: white;
+    display: flex;
+    cursor: pointer;
+
+    
+    // transition: all .15s ease-in;
+
+   
+    // @extend %rotated-setup-form-element;
+
+    &__actual-select {
+        
+        display: none;
+    }
+
+    &__selected {
+        
+        padding: 1rem;
+        flex: 1;
+        font-size: 1.7rem;
+        // line-height: 1.7rem;
+
+        &::after {
+            content: '';
+            width: 3.5rem;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: rgb(60, 120, 231);
+            -webkit-mask: url(../img/pilot-svg/chevron-small-down.svg) 50% 50% no-repeat;
+            mask: url(../img/pilot-svg/chevron-small-down.svg) 50% 50% no-repeat;
+        }
+
+        &.custom-select__selected--down::after {
+            -webkit-mask: url(../img/pilot-svg/chevron-small-up.svg) 50% 50% no-repeat;
+            mask: url(../img/pilot-svg/chevron-small-up.svg) 50% 50% no-repeat;
+        } 
+    }
+
+    &__items {
+        
+        // display: none;
+        position: absolute;
+        max-height: 30rem;
+        // height: auto;
+        width: 100%;
+        border-radius: .6rem;
+        // background: red;
+        bottom: -10%;
+        // opacity: 1;
+        z-index: 100;
+        transform: translateY(101%);
+        transition: all .15s ease-in;
+        overflow-y: scroll;
+
+        &.select-items-collapsed {
+            height: 0;
+            // opacity: 0;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__item {
+        font-size: 1.6rem;
+        padding: 1rem;
+        background-color: rgb(199, 199, 199);
+        transition: all .15s linear;
+
+        &:hover {
+            background: white;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid rgb(112, 112, 112);
+        }
+    }
+}

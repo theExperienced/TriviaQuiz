@@ -1,0 +1,134 @@
+.setup-form {
+
+    // display: grid;
+    // grid-row-gap: 2rem;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: repeat(4, 1fr) 0 1fr;
+    // grid-column-gap: 4.4rem;
+    width: 42%;
+    // margin-left: 40%;
+    margin-top: -10rem;
+    height:500px;
+    align-items: center;
+    font-family: 'Bitter', sans-serif;
+    // animation: hover-in-air 1.2s infinite alternate ease-in-out;
+    // animation-play-state: running; 
+    transition: all .15s linear;
+    // animation-fill-mode: none;
+    
+    perspective: 1000px;
+    
+    // transform: rotateX(15deg) rotateY(30deg);
+
+    &:hover > &__group  { 
+        animation: 0;   
+        // animation-play-state: paused; 
+        // animation-fill-mode: backwards;
+    }
+    
+    &__group {
+
+        position: absolute;
+        width: 100%;
+        height: 10rem;
+        display: flex;
+        // justify-content: stretch;
+        align-items: center;
+        transition: all .15s ease-in;
+        padding: 0 1.3rem;
+        padding-right: 3rem;
+        mix-blend-mode: multiply;
+        
+        transform: translateY(-1.2rem) rotateX(15deg) rotateY(-30deg);
+
+
+        animation: hover-in-air 1.8s infinite alternate ease-in-out;
+        animation-play-state: running; 
+        animation-fill-mode: none;
+
+        @for $i from 1 through 4 {
+
+            &:nth-child(#{$i}) {
+                // animation-delay: $i * .2s;
+                z-index: z-index-increments(#{$i});
+                top: $i * 17%;
+            }
+        }
+
+        border-bottom: 5px solid rgba(194, 41, 255, 0.5);
+        border-right: 2px solid rgba(194, 41, 255, 0.5);
+        border-radius: .8rem;
+        background-color: rgba(194, 41, 255, 0.35);
+        // @extend .rotatedsetupformelementnormal;
+        &:hover {
+
+            // animation: 0;
+            background-color: rgba(194, 41, 255, 1);
+            z-index:500;
+            border-bottom: 5px solid rgba(102, 5, 141, 0.35);
+            border-right: 2px solid rgba(102, 5, 141, 0.35);
+            transform: scale(1.1) rotateX(10deg) rotateY(-15deg);
+            mix-blend-mode: normal;
+        }
+    }
+
+    &__field {
+    // &__select {
+        height: 4.5rem;
+        font-size: 2rem;
+        // width: 10rem;
+        transition: all .1s linear;
+        padding-left: 1.5rem;
+        outline:0;
+   
+
+        border-radius: .8rem;
+        border:none;
+        width: 20rem;
+        -webkit-appearance: textfield;
+
+        // @extend %rotated-setup-form-element--normal;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+    }
+
+    &__select > .custom-select__selected, 
+    &__field {
+        
+        color: rgba(0, 33, 13, 0.75);
+
+        &:focus,
+        &:active {
+            border: 2px solid blue;
+        }
+    }
+
+    &__label {
+        flex: 1;
+        text-align: right;
+        justify-self: flex-end;
+        font-size: 1.7rem;
+        color: white;
+        margin-right: 1.5rem;
+        // @extend %rotated-setup-form-element;
+    }
+
+    &__submit {
+        width: 100%;
+        height: 4rem;
+        border-radius: 4rem;
+        // font-family: ;
+        align-self: center;
+        border: 0;
+        margin-left: -3rem;
+        cursor: pointer;
+        // background-color: ;
+        // @extend .rotated-setup-form-element--normal;
+    }
+
+
+}
