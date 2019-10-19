@@ -1,25 +1,27 @@
 .loading-modal {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
+    // background: red;
+    // $i: 0
+    @for $i from 1 through 3 {
+        
+        &__spinner:nth-child(#{$i}) {
+            transform: rotateZ($i * 120deg);
+        }
+    }
+    // display: grid;
+    // justify-items: center;
+    // align-items: center;
 
-    &.disabled {
-        display: none;
+    &__spinner--small {
+        @include loading-modal($smallRadius, $smallColor, $smallFactor);
     }
 
-    &__spinner {
-
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform-origin: center;
-        display: block;
-        width: 10rem;
-        height: 10rem;
-        border-top: 3px solid white;
-        border-right: 3px solid white;
-        border-radius: 10rem;
-        animation: spinning 1s linear infinite;
+    &__spinner--medium {
+        @include loading-modal($mediumRadius, $mediumColor, $mediumFactor);
     }
+
+    &__spinner--large {
+        @include loading-modal($largeRadius, $largeColor, $largeFactor);
+    }
+
+    
 }

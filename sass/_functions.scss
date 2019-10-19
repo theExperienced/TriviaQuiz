@@ -1,3 +1,7 @@
 @function z-index-increments($i) {
     @return map-get($setup-form-z-indices, $i);
 }
+
+@function color-for-loading-modal($radius) {
+    @return map-get($map: $colors-for-loading-modal, $key: $radius);
+}

@@ -55,18 +55,18 @@
             }
         }
 
-        border-bottom: 5px solid rgba(194, 41, 255, 0.5);
-        border-right: 2px solid rgba(194, 41, 255, 0.5);
+        border-bottom: 4px solid rgba(114, 114, 114, 0.8);
+        border-right: 2px solid rgba(114, 114, 114, 0.8);
         border-radius: .8rem;
-        background-color: rgba(194, 41, 255, 0.35);
+        background-color: rgba(192, 151, 97, .8);
         // @extend .rotatedsetupformelementnormal;
         &:hover {
 
             // animation: 0;
-            background-color: rgba(194, 41, 255, 1);
+            background-color: rgba(192, 151, 97, 1);
             z-index:500;
-            border-bottom: 5px solid rgba(102, 5, 141, 0.35);
-            border-right: 2px solid rgba(102, 5, 141, 0.35);
+            border-bottom: 4px solid rgba(114, 114, 114, 1);
+            border-right: 2px solid rgba(114, 114, 114, 1);
             transform: scale(1.1) rotateX(10deg) rotateY(-15deg);
             mix-blend-mode: normal;
         }
@@ -103,7 +103,7 @@
 
         &:focus,
         &:active {
-            border: 2px solid blue;
+            // border: 2px solid blue;
         }
     }
 

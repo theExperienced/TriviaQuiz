@@ -20,7 +20,9 @@
 </head>
 <body>
     <div class="loading-modal">
-        <span class="loading-modal__spinner"></span>
+        <div class="loading-modal__spinner loading-modal__spinner--large"></div>
+        <div class="loading-modal__spinner loading-modal__spinner--medium"></div>
+        <div class="loading-modal__spinner loading-modal__spinner--small"></div>
     </div>
     <div class="outer-container">
         
@@ -166,6 +168,8 @@
         const menuRecordHistory = document.querySelector('.menu__link--record-history');
 
         const innerContainer = document.querySelector('.inner-container');
+        const resumeGame = document.querySelector('.inner-container__resume-session');
+
         const welcome = document.querySelector('.welcome');
         
         const setupFormProper = document.querySelector('.setup-form');
@@ -239,7 +243,7 @@
                 console.log(sessionToken);
             }).then(() => {
 
-                let url = `https://opentdb.com/api.php?amount=10`;
+                let url = 'https://opentdb.com/api.php?amount=10';
                 // let url = `https://opentdb.com/api.php?amount=20`;
                 // url += `token=${sessionToken}`;
                 console.log(url)
@@ -276,7 +280,7 @@
             //     console.log('clicked on selected item')
             //     currentlyUsedCustomSelect.nextElementSibling.classList.add('select-items-collapsed');
             //     currentlyUsedCustomSelect = null;
-            }
+            
         });
 
         menuRecordHistory.addEventListener('click', function() {
@@ -350,6 +354,11 @@
             }
         });
 
+        resumeGame.addEventListener('click', function() {
+            switchDisplays(currentlyDisplayed, gameplay);
+            
+        });
+
         (customSelectArray.map(customSelect => customSelect.children[1])).forEach(selectedItem => {
             selectedItem.addEventListener('click', (e) => {
                 selectedItem.nextElementSibling.classList.toggle('select-items-collapsed');
@@ -364,6 +373,7 @@
                 e.stopPropagation();
             });
         });
+
 
         gameplayControlPreviousQuestion.addEventListener('click', function(){
             currentQuestionNumber = currentQuestionNumber - 1;
@@ -478,7 +488,7 @@
             if (isCollapsed) {
                 currentlyUsedCustomSelect.classList.add('custom-select__selected--down');
             }else {
-                
+
             }
         };
 
@@ -490,6 +500,12 @@
                 enteringSection.classList.add('section-displayed');
                 currentlyDisplayed = enteringSection;
                 menuToggle.checked = false;
+
+                if (gameIsOn && currentlyDisplayed != gameplay) {
+                    resumeGame.classList.add('plain-visible');
+                }else if (currentlyDisplayed === gameplay) {
+                    resumeGame.classList.remove('plain-visible');
+                }
             }
         }
         // function fadeOutWelcome() {
