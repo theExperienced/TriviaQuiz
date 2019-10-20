@@ -19,6 +19,10 @@
     </style>
 </head>
 <body>
+    <div class="user-prompt">
+
+
+    </div>
     <div class="loading-modal">
         <div class="loading-modal__spinner loading-modal__spinner--large"></div>
         <div class="loading-modal__spinner loading-modal__spinner--medium"></div>
@@ -50,7 +54,7 @@
                     <div class="content-container">
                     <div class="section section-displayed welcome">
                         <h2 class="welcome__secondary-title">Find out if your upbringing was top notch and you have no life</h2>
-                        <p class="welcome__preferences-paragraph">Choose your prefereneces</p>
+                        <!-- <p class="welcome__preferences-paragraph">Choose your prefereneces</p> -->
                         <div class="welcome__form-container">
                             <div class="welcome__button-container">
                                 <button class="setup-form__submit">Begin</button>
@@ -102,7 +106,7 @@
                     </div>
                     <div class="section section-undisplayed gameplay">
 
-                        <h2 class="gameplay__question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, mollitia.</h2>
+                        <h2 class="gameplay__question"><span class="gameplay__question-num"></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, mollitia.</h2>
                         <div class="gameplay__answers">
                              <!-- <div class="gameplay__radio-group">
                                 <input type="radio" class="gameplay__answer-radio" id="1" name="sameGroup">
@@ -139,7 +143,7 @@
                                 <button class="gameplay__go-to-question-button">Go</button>
                             </div>
                             <button class="gameplay__next-question"></button>
-                            <button class="gameplay__im-done">I'm Done</button>
+                            <button class="gameplay__im-done">I'm Done<span class="gameplay__im-done--foshizle">,FO SHIZLE </span></span>   </button>
                         </div>
                         
                     </div>
@@ -188,7 +192,8 @@
         const setupFormSubmit = document.querySelector('.setup-form__submit');
 
         const gameplay = document.querySelector('.gameplay');
-        let questionTitle = document.querySelector('.gameplay__question');
+        let questionNum = document.querySelector('.gameplay__question-num');
+        let questionTitle = document.querySelector('.gameplay__question').childNodes[1];
         const gameplayAnswers = document.querySelector('.gameplay__answers');
         let gameplayAnswerRadios;
         const gameplayControlPreviousQuestion = document.querySelector('.gameplay__prev-question');
@@ -323,8 +328,15 @@
         })
 
         setupFormSubmit.addEventListener('click', function(e) {
-                // e.preventDefault();                                              //take care of that!!!!
-            if (numOfQuestionsField.value.trim().length != 0) {
+                // e.preventDefault();                        
+                                      //take care of that!!!!
+            const numOfQuestions = numOfQuestionsField.value;
+            if (numOfQuestionsField.value.trim().length != 0 ) {
+                if (!(numOfQuestions >= 20 && numOfQuestions <= 50)) {
+                    ///handle error
+                    return;
+                }
+
                 let url = `https://opentdb.com/api.php?`;
                 for (let field of [categoryActualSelect, numOfQuestionsField, difficultyActualSelect, typeActualSelect]) {
                     if (field.value) {
@@ -333,21 +345,35 @@
                 }
                 url += `token=${sessionToken}`;
                 console.log(url)
-                fetch(url).then(response => response.json()).then(result => {
-                    currentQuestionBatch = result.results;
-                    currentCorrectAnswers = currentQuestionBatch.map(question => question.correct_answer);
-                    userAnswers = new Array(currentQuestionBatch.length);
-                    // welcomeContainer.classList.add('welcome--shifted');
-                    // fadeOutWelcome();
+                fetch(url).then(response => {
+                    // console.log('JSON RESPONSE', response)
+                    return response.json()
+                    
+                    }).then(result => {
+                    console.log('JSON RESUSLT', result)
+                    switch (result.response_code) {
+                        case 0:
+                            currentQuestionBatch = result.results;
+                            currentCorrectAnswers = currentQuestionBatch.map(question => question.correct_answer);
+                            userAnswers = new Array(currentQuestionBatch.length);
+                            // welcomeContainer.classList.add('welcome--shifted');
+                            // fadeOutWelcome();
 
-                    // initGameplay();
+                            // initGameplay();
 
-                    switchDisplays(welcome, gameplay);
-                    gameIsOn = true;
-                    prepareNextQuestion(0);
-                    currentlyDisplayed = gameplay;
-                     //maybe needs to go one level up!!!!
-                    console.log('questions ', currentQuestionBatch)
+                            switchDisplays(welcome, gameplay);
+                            gameIsOn = true;
+                            prepareNextQuestion(0);
+                            currentlyDisplayed = gameplay;
+                            //maybe needs to go one level up!!!!
+                            console.log('questions ', currentQuestionBatch)
+                        case 1:   //
+
+                        // case 2:
+                        // case 3:
+                        case 4: 
+                    }
+                    
                 });
                 
                 
@@ -520,11 +546,13 @@
         // }
 
         function prepareNextQuestion(questionNumber) {
-            console.log('inside prepaering next queewestion', currentQuestionBatch)
+            console.log('inside prepaering next queewestion', currentQuestionBatch);
             gameplayAnswers.innerHTML = "";
             currentQuestion = currentQuestionBatch[questionNumber];
 
-            questionTitle.innerHTML = `#${questionNumber + 1} ${currentQuestion.question}`;
+            questionNum.innerHTML = `#${questionNumber + 1}`;
+            console.log(questionTitle, 'quesiotn title#@%@#%@#%@#%@@%@%');
+            questionTitle.replaceWith(document.createTextNode(currentQuestion.question));
 
             const correctAnswerInsertIndex = Math.floor(Math.random() * (1 + currentQuestion.incorrect_answers.length));
             const allAnswers = [...(currentQuestion.incorrect_answers)];
