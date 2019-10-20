@@ -57,9 +57,9 @@
         
         radial-gradient( black 60%, transparent 60%),
                             conic-gradient(from $factor * 90deg, transparent, transparent 25%,
-                                      rgb(225, 180, 255) 25%, $color 50%,
+                                      rgb(177, 83, 119) 25%, $color 50%,
                                         transparent 50%, transparent 75%,
-                                        $color 75%, rgb(169, 204, 255) 100%
+                                        $color 75%, rgb(245, 178, 90) 100%
                                         );
         border-radius: 20rem;
         @if $factor % 2 == 0 {

@@ -23,7 +23,7 @@
     width: 100%;
     height: 200vh;
     position: absolute;    
-    background-image: linear-gradient(to bottom right, rgb(93, 236, 158), rgba(97, 121, 255, 0.473));
+    background-image: linear-gradient(to bottom right, rgb(233, 47, 56), rgb(119, 107, 161));
     padding: 4.5rem 10rem 10rem 20rem;
     top: 0;
     transform-origin: top left;
@@ -108,7 +108,7 @@
     }
 
     &__button-container {
-        flex: 0 0 15%;
+        flex: 0 0 45%;
         align-self: center;
         // width: fit-content;
         
@@ -142,6 +142,13 @@
         // padding: 1rem;
         font-size: 3rem;
         flex: 0 0 25%;
+        color: rgba(255, 255, 255, .35);
+    }
+
+    &__question-num {
+         border-right: 2px solid rgba(255, 255, 255, .35);
+         padding-right: 2.5rem;
+         margin-right: 1.5rem;
     }
 
     &__answers {
@@ -161,61 +168,91 @@
         display: none;
     }
 
+    &__answer-radio:checked + &__answer-label > &__answer-pseudo-radio {
+        // background-color: green;
+        
+    }
+
     &__answer-radio:checked + &__answer-label > &__answer-pseudo-radio::after {
-        opacity: 1;
+        visibility: visible;
+        // background-color: pink;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        margin-left: -50%;
+        // margin-left: -50%;
+        border-radius: 3px;
+        // transform: scale(30);
+        // opacity: .3;
     }
 
     &__answer-label {
         position: relative;
         cursor: pointer;
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+        padding-left: 4rem;
     }
 
     &__answer-pseudo-radio {
         position: absolute;
+        box-sizing: content-box;
         top: 50%;
+        left: 0;
         transform: translateY(-50%);
         display: inline-block;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 2.5rem;
-        border: 2px solid white;
+        width: 2.1rem;
+        height: 2.1rem;
+        background-image: radial-gradient(circle at 50% 0, rgb(158, 158, 158) 5%, rgb(50, 50, 50) 65%);
+        // box-shadow:inset 0 2px 5px -1px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+        border-radius: 7px;
+        border: 2px solid rgba(0, 0, 0, 0.534);
+        transition: all .15s linear;
 
         &::after {
             content: '';
+            visibility: hidden;
             position: absolute;
-            width: 1.5rem;
-            height: 1.5rem;
-            background: white;
-            border-radius: 1.5rem;
-            transition: all .15s linear;
-            opacity: 0;
-            top: 50%;
+            width: 0;
+            height: 0;
+            background: rgb(175, 136, 78);
+            transition: all .2s linear;
+            border-radius: 10px;
+            // opacity: 1;
+            top: 0;
             left: 50%;
-            transform: translate(-50%, -50%);
+            // margin-top: -5%;
+            // margin-left: -5%;
         }
     }
 
     &__control {
         width: 100%;
-        flex: 0 0 15%;
+        flex: 0 0 12%;
         display: flex;
         justify-content: space-around;
-        align-items: center;
-        box-sizing: content-box;
+        align-content: center;
+        border-radius: 4px;
+        box-shadow: 0 7px 15px -2px rgba(0, 0, 0, .5);
+        background-image: linear-gradient( rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.2));
+        padding: 1rem;
+        // box-sizing: content-box;
         // padding: 4rem;
+
     }
 
     &__prev-question,
     &__next-question {
-        flex: 0 0 15%;
+        flex: 0 0 5%;
         height: 100%;
         border: none;
         cursor: pointer;
         visibility: visible;
         opacity: 1;
         transition: all .15s linear;
-        background-color: rgb(60, 120, 231);
+        background-color: rgba(0, 0, 0, 0.45);
+        // background-image: linear-gradient(to left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.5));
 
         &.gameplay__prev-next-question--disabled {
             visibility: hidden;
@@ -223,14 +260,18 @@
         }
 
         &:hover {
-            background-color: rgb(19, 75, 179);
+            background-color: rgba(0, 0, 0, 0.75);
 
         }
-        
     }
 
+    &__prev-question, &__go-to-question-container    {
+        margin-right: 3rem;
+    }
+        
     &__prev-question {
         
+        margin-left: 7rem;
         -webkit-mask: url(../img/pilot-svg/arrow-bold-left.svg) 50% 50% no-repeat;
         mask: url(../img/pilot-svg/arrow-bold-left.svg) 50% 50% no-repeat;
         
@@ -240,6 +281,11 @@
         
         &-container {
 
+            display: flex;
+            align-items: center;
+            // line-height: 100%;
+            border-radius: 5px;
+            
             & > *:not(:last-child) {
                 margin-right: 2rem;
             }
@@ -247,6 +293,7 @@
 
         &-label {
             font-size: 2rem;
+            color: rgba(0, 0, 0, 0.6);
         }
 
         &-input{
@@ -254,24 +301,46 @@
             outline: none;
             height: 3rem;
             width: 3rem;
-            padding-left: 1rem;
+            padding-left: 7px;
+            // box-sizing: content-box;
+            transition: all .15s linear;
             border-radius: 3px;
+            box-shadow: none;
+
+            &:hover {
+                color: rgba(0, 0, 0, 0.75);
+            }
+
+            &:active,
+            &:focus {
+                // border: 2px solid rgba(0, 0, 0, 0.404);
+                box-shadow: inset 0 1px 6px  rgba(0, 0, 0, 0.616);
+            }
         }
 
         &-button {
             border: none;
             height: 4rem;
             width: 4.5rem;
-            text-align: left;
-            padding-left: 1rem;
+            background:none;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 2rem;
+            text-align: center;
+            border-radius: 50%;
+            transition: all .15s linear;
+            // box-shadow: inset 0 -3px 4px black;
+            // padding-left: 1rem;
             cursor: pointer;
             // border-radius: 50%;
-            -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-            clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-            transition: clip-path .2s .1s linear;
+            // -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+            // clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+            // transition: clip-path .2s .1s linear;
 
             &:focus,
             &:active {
+                outline: none;
+                box-shadow: 0 4px 3px rgba(0, 0, 0, 0.363), inset 0 4px 4px rgba(0, 0, 0, 0.39);
+
                 // clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
             }
         }
@@ -288,28 +357,18 @@
         position: relative;
         padding: 1rem 2rem;
         border: none;
+        overflow: hidden;
         border-radius: 40px;
         outline: none;
-        width: 6rem;
+        box-sizing: content-box;
+        background: none;
+        width: 5rem;
         transition: all .15s linear;
         cursor: pointer;
 
-        &:hover {
-            width: 10rem;
-        }
-
-        &:hover::after {
-            content: ', FO SHIZLE';
-            opacity: 1;
-            visibility: visible;
-            transition: .1s 1.35s all linear;
-        }
-
-        &::after {
-            content: '';
-            opacity: 0;
-            visibility: hidden;
-        }
+        // &:hover {
+        //     width: 10rem;
+        // }
 
         &::before {
             content: 'Answer all questions first';
@@ -318,7 +377,7 @@
             border-radius: 4px;
             font-size: 1.5rem;
             color: white;
-            padding: .5rem;
+            padding: 5px;
             background: rgba(0, 0, 0, 0.514);
             top: -110%;
             left: 50%;
@@ -331,6 +390,18 @@
         &.gameplay_im-done--showing-error::before {
             visibility: visible;
             opacity: 1;
+        }
+
+        &--foshizle {
+            margin-right: -5rem;
+        }
+
+        &:hover > &--foshizle {
+            margin-right: 0;
+        }
+
+        &:hover {
+            width:11rem;
         }
     }
 }

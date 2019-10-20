@@ -47,16 +47,18 @@
 
     &__toggle--input:checked + &__toggle--label {
         // box-shadow: 3px 3px 4rem .5rem rgb(241, 0, 12), 0 0 5rem 1.8rem rgb(255, 255, 255);
-        background-image: radial-gradient(180% 150% at 0 0, rgb(0, 255, 106) 10%, rgb(28, 206, 102) 35%,rgb(55, 207, 118) 70%);
-        box-shadow: inset -1.2rem -1.2rem 1.5rem -1.3rem rgba(206, 206, 206, 0.7), inset -1.2rem -1.2rem .8rem -.4rem rgba(51, 51, 51, 0.3), 0 0 6rem 1.5rem rgb(255, 255, 255), 0 0 3rem .6rem rgb(0, 230, 96), 0 0 0 1px rgba(0, 0, 0, 0.9);
+        // background-image: radial-gradient(180% 150% at 0 0, rgb(153, 0, 158) 10%, rgb(212, 53, 218) 35%,rgb(251, 131, 255) 70%);
+        box-shadow: inset -1.2rem -1.2rem 1.5rem -1.3rem rgba(206, 206, 206, 0.7), inset -1.2rem -1.2rem .8rem -.4rem rgba(51, 51, 51, 0.3), 0 0 6rem 1.5rem rgb(255, 255, 255), 0 0 3rem .6rem rgb(255, 0, 64), 0 0 0 1px rgba(0, 0, 0, 0.9);
     }
 
     &__toggle--input:checked + &__toggle--label > &__stripe {
 
+
         &--top {
 
             transform: rotate(45deg);
-            top: 36%
+            top: 36%;
+            background-color: rgb(255, 111, 147);
         }
 
         &--middle {
@@ -66,6 +68,7 @@
         &--bottom {
             transform: rotate(-45deg);
             top: 36%;
+            background-color: rgb(255, 111, 147);
         }
     }
 
@@ -92,12 +95,12 @@
 
     &__link {
         font-family: 'Raleway', sans-serif;
-        color: rgb(184, 153, 136);
+        color: rgb(184, 184, 184);
         font-size: 2.5rem;
         transition: all .15s ease-in;
 
         &:hover {
-            color: rgb(60, 255, 148);
+            color: rgb(255, 34, 82);
             // text-shadow: 1px 1px 3px rgba(255, 255, 255, .9),
             //              1px 1px 3px rgba(255, 255, 255, .9),
             //              1px 1px 3px rgba(255, 255, 255, .9),
