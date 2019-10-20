@@ -221,7 +221,7 @@ a:link {
     color: rgba(255, 255, 255, 0.35); }
   .gameplay__question-num {
     border-right: 2px solid rgba(255, 255, 255, 0.5);
-    padding-right: 1.5rem;
+    padding-right: 2.5rem;
     margin-right: 1.5rem; }
   .gameplay__answers {
     flex: 1;
@@ -274,12 +274,12 @@ a:link {
       left: 0; }
   .gameplay__control {
     width: 100%;
-    flex: 0 0 8%;
+    flex: 0 0 12%;
     display: flex;
     justify-content: space-around;
     align-content: center;
     border-radius: 4px;
-    box-shadow: 0 5px 15px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 7px 15px -2px rgba(0, 0, 0, 0.5);
     background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.2));
     padding: 1rem; }
   .gameplay__prev-question, .gameplay__next-question {
@@ -299,7 +299,7 @@ a:link {
   .gameplay__prev-question, .gameplay__go-to-question-container {
     margin-right: 3rem; }
   .gameplay__prev-question {
-    margin-left: 10rem;
+    margin-left: 7rem;
     -webkit-mask: url(../img/pilot-svg/arrow-bold-left.svg) 50% 50% no-repeat;
     mask: url(../img/pilot-svg/arrow-bold-left.svg) 50% 50% no-repeat; }
   .gameplay__go-to-question-container {
@@ -346,9 +346,12 @@ a:link {
     position: relative;
     padding: 1rem 2rem;
     border: none;
+    overflow: hidden;
     border-radius: 40px;
     outline: none;
+    box-sizing: content-box;
     background: none;
+    width: 5rem;
     transition: all .15s linear;
     cursor: pointer; }
     .gameplay__im-done::before {
@@ -370,13 +373,11 @@ a:link {
       visibility: visible;
       opacity: 1; }
     .gameplay__im-done--foshizle {
-      background: red;
-      visibility: hidden;
-      display: none;
-      opacity: 0;
-      width: 0; }
+      margin-right: -5rem; }
     .gameplay__im-done:hover > .gameplay__im-done--foshizle {
-      width: 100%; }
+      margin-right: 0; }
+    .gameplay__im-done:hover {
+      width: 11rem; }
 
 @keyframes spinning {
   0% {
@@ -470,13 +471,12 @@ a:link {
     border-radius: 50%;
     margin-left: -3rem;
     transform-origin: center;
-    transition: all .15s linear;
+    transition: all .5s linear;
     cursor: pointer; }
     .setup-form__submit:hover {
       text-shadow: 1px 7px 14px rgba(0, 0, 0, 0.35); }
     .setup-form__submit:active, .setup-form__submit:focus {
-      outline: none;
-      box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.651); }
+      outline: none; }
 
 .loading-modal__spinner:nth-child(1) {
   transform: rotateZ(120deg); }
@@ -496,7 +496,7 @@ a:link {
   margin-left: -7rem;
   width: 14rem;
   height: 14rem;
-  background-image: radial-gradient(black 60%, transparent 60%), conic-gradient(from 0deg, transparent, transparent 25%, #e1b4ff 25%, #005521 50%, transparent 50%, transparent 75%, #005521 75%, #a9ccff 100%);
+  background-image: radial-gradient(black 60%, transparent 60%), conic-gradient(from 0deg, transparent, transparent 25%, #b15377 25%, #880994 50%, transparent 50%, transparent 75%, #880994 75%, #f5b25a 100%);
   border-radius: 20rem;
   animation: spinning 1.3s linear infinite; }
   .loading-modal__spinner--small ::after {
@@ -520,7 +520,7 @@ a:link {
   margin-left: -11rem;
   width: 22rem;
   height: 22rem;
-  background-image: radial-gradient(black 60%, transparent 60%), conic-gradient(from 90deg, transparent, transparent 25%, #e1b4ff 25%, #14a14a 50%, transparent 50%, transparent 75%, #14a14a 75%, #a9ccff 100%);
+  background-image: radial-gradient(black 60%, transparent 60%), conic-gradient(from 90deg, transparent, transparent 25%, #b15377 25%, #bb35c7 50%, transparent 50%, transparent 75%, #bb35c7 75%, #f5b25a 100%);
   border-radius: 20rem;
   animation: spinning 1.3s linear reverse infinite; }
   .loading-modal__spinner--medium ::after {
@@ -544,7 +544,7 @@ a:link {
   margin-left: -15rem;
   width: 30rem;
   height: 30rem;
-  background-image: radial-gradient(black 60%, transparent 60%), conic-gradient(from 180deg, transparent, transparent 25%, #e1b4ff 25%, #49ff8f 50%, transparent 50%, transparent 75%, #49ff8f 75%, #a9ccff 100%);
+  background-image: radial-gradient(black 60%, transparent 60%), conic-gradient(from 180deg, transparent, transparent 25%, #b15377 25%, #f58aff 50%, transparent 50%, transparent 75%, #f58aff 75%, #f5b25a 100%);
   border-radius: 20rem;
   animation: spinning 1.3s linear infinite; }
   .loading-modal__spinner--large ::after {

@@ -147,7 +147,7 @@
 
     &__question-num {
          border-right: 2px solid rgba(255, 255, 255, .5);
-         padding-right: 1.5rem;
+         padding-right: 2.5rem;
          margin-right: 1.5rem;
     }
 
@@ -229,12 +229,12 @@
 
     &__control {
         width: 100%;
-        flex: 0 0 8%;
+        flex: 0 0 12%;
         display: flex;
         justify-content: space-around;
         align-content: center;
         border-radius: 4px;
-        box-shadow: 0 5px 15px -2px rgba(0, 0, 0, .5);
+        box-shadow: 0 7px 15px -2px rgba(0, 0, 0, .5);
         background-image: linear-gradient( rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.2));
         padding: 1rem;
         // box-sizing: content-box;
@@ -271,7 +271,7 @@
         
     &__prev-question {
         
-        margin-left: 10rem;
+        margin-left: 7rem;
         -webkit-mask: url(../img/pilot-svg/arrow-bold-left.svg) 50% 50% no-repeat;
         mask: url(../img/pilot-svg/arrow-bold-left.svg) 50% 50% no-repeat;
         
@@ -357,10 +357,12 @@
         position: relative;
         padding: 1rem 2rem;
         border: none;
+        overflow: hidden;
         border-radius: 40px;
         outline: none;
+        box-sizing: content-box;
         background: none;
-        // width: 8rem;
+        width: 5rem;
         transition: all .15s linear;
         cursor: pointer;
 
@@ -391,15 +393,15 @@
         }
 
         &--foshizle {
-            background: red;
-            visibility: hidden;
-            display: none;
-            opacity: 0;
-            width: 0;
+            margin-right: -5rem;
         }
 
         &:hover > &--foshizle {
-            width: 100%;
+            margin-right: 0;
+        }
+
+        &:hover {
+            width:11rem;
         }
     }
 }
