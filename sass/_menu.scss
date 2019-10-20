@@ -58,7 +58,7 @@
 
             transform: rotate(45deg);
             top: 36%;
-            background-color: rgb(214, 103, 131);
+            background-color: rgb(255, 111, 147);
         }
 
         &--middle {
@@ -68,7 +68,7 @@
         &--bottom {
             transform: rotate(-45deg);
             top: 36%;
-            background-color: rgb(214, 103, 131);
+            background-color: rgb(255, 111, 147);
         }
     }
 
@@ -100,7 +100,7 @@
         transition: all .15s ease-in;
 
         &:hover {
-            color: rgb(182, 137, 85);
+            color: rgb(255, 34, 82);
             // text-shadow: 1px 1px 3px rgba(255, 255, 255, .9),
             //              1px 1px 3px rgba(255, 255, 255, .9),
             //              1px 1px 3px rgba(255, 255, 255, .9),
