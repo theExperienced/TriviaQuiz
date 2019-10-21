@@ -33,7 +33,8 @@
             position: absolute;
             right: 0;
             top: 0;
-            background-color: rgb(60, 120, 231);
+            transition: all .15s linear;
+            background-color: rgb(78, 38, 0);
             -webkit-mask: url(../img/pilot-svg/chevron-small-down.svg) 50% 50% no-repeat;
             mask: url(../img/pilot-svg/chevron-small-down.svg) 50% 50% no-repeat;
         }

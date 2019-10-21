@@ -106,7 +106,10 @@
                     </div>
                     <div class="section section-undisplayed gameplay">
 
-                        <h2 class="gameplay__question"><span class="gameplay__question-num"></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, mollitia.</h2>
+                        <h2 class="gameplay__question">
+                            <span class="gameplay__question--num"></span>
+                            <span class="gameplay__question--title"></span>
+                        </h2>
                         <div class="gameplay__answers">
                              <!-- <div class="gameplay__radio-group">
                                 <input type="radio" class="gameplay__answer-radio" id="1" name="sameGroup">
@@ -192,8 +195,8 @@
         const setupFormSubmit = document.querySelector('.setup-form__submit');
 
         const gameplay = document.querySelector('.gameplay');
-        let questionNum = document.querySelector('.gameplay__question-num');
-        let questionTitle = document.querySelector('.gameplay__question').childNodes[1];
+        let questionNum = document.querySelector('.gameplay__question--num');
+        let questionTitle = document.querySelector('.gameplay__question--title');
         const gameplayAnswers = document.querySelector('.gameplay__answers');
         let gameplayAnswerRadios;
         const gameplayControlPreviousQuestion = document.querySelector('.gameplay__prev-question');
@@ -214,6 +217,7 @@
         let currentCorrectAnswers;
 
         let userRecordHistory = fetchUserRecordHistory();
+        let userRecordHistoryUpdated = false;
         console.log(userRecordHistory, 'userrecordhistorYYYYYYYYYYYYYYYYYYYYYYYYYy');
         let userAnswers;
         
@@ -241,34 +245,34 @@
 
 
 
-            fetch('https://opentdb.com/api_token.php?command=request').
-            then(response => response.json()).
-            then(result => {
-                sessionToken = result.token;
-                console.log(sessionToken);
-            }).then(() => {
+            // fetch('https://opentdb.com/api_token.php?command=request').
+            // then(response => response.json()).
+            // then(result => {
+            //     sessionToken = result.token;
+            //     console.log(sessionToken);
+            // }).then(() => {
 
-                let url = 'https://opentdb.com/api.php?amount=10';
-                // let url = `https://opentdb.com/api.php?amount=20`;
-                // url += `token=${sessionToken}`;
-                console.log(url)
-                fetch(url).then(response => response.json()).then(result => {
+            //     let url = 'https://opentdb.com/api.php?amount=10';
+            //     // let url = `https://opentdb.com/api.php?amount=20`;
+            //     // url += `token=${sessionToken}`;
+            //     console.log(url)
+            //     fetch(url).then(response => response.json()).then(result => {
                     
-                    currentQuestionBatch = result.results;
-                    currentCorrectAnswers = currentQuestionBatch.map(question => question.correct_answer);
-                    console.log(currentCorrectAnswers, 'currentCorrectAnswers')
-                    userAnswers = new Array(currentQuestionBatch.length);
-                    // welcomeContainer.classList.add('welcome--shifted');
-                    // fadeOutWelcome();
-                     //maybe needs to go one level up!!!!
-                    console.log('questions ', currentQuestionBatch)
-                    prepareNextQuestion(0);
-                });
+            //         currentQuestionBatch = result.results;
+            //         currentCorrectAnswers = currentQuestionBatch.map(question => question.correct_answer);
+            //         console.log(currentCorrectAnswers, 'currentCorrectAnswers')
+            //         userAnswers = new Array(currentQuestionBatch.length);
+            //         // welcomeContainer.classList.add('welcome--shifted');
+            //         // fadeOutWelcome();
+            //          //maybe needs to go one level up!!!!
+            //         console.log('questions ', currentQuestionBatch)
+            //         prepareNextQuestion(0);
+            //     });
                 
                 
 
 
-            })
+            // })
 
 
 
@@ -290,7 +294,10 @@
 
         menuRecordHistory.addEventListener('click', function() {
             switchDisplays(currentlyDisplayed, recordHistory);
-            buildAndDisplayRecordHistory();
+            if (userRecordHistoryUpdated) {
+                buildAndDisplayRecordHistory();
+                userRecordHistoryUpdated = false;
+            }
         });
 
         menuNewSession.addEventListener('click', function() {
@@ -322,6 +329,7 @@
             setupFormGroup.addEventListener('mouseleave', function() {
                 if (currentlyUsedCustomSelect != null) {
                     currentlyUsedCustomSelect.nextElementSibling.classList.add('select-items-collapsed');
+                    currentlyUsedCustomSelect.classList.remove('custom-select__selected--down');
                     currentlyUsedCustomSelect = null;
                 }
             });
@@ -388,12 +396,14 @@
         (customSelectArray.map(customSelect => customSelect.children[1])).forEach(selectedItem => {
             selectedItem.addEventListener('click', (e) => {
                 selectedItem.nextElementSibling.classList.toggle('select-items-collapsed');
+                selectedItem.classList.toggle('custom-select__selected--down');
                 if (currentlyUsedCustomSelect === null) {
                     currentlyUsedCustomSelect = selectedItem;
                 }else if (currentlyUsedCustomSelect === selectedItem){
                     currentlyUsedCustomSelect = null;
                 }else {
                     currentlyUsedCustomSelect.nextElementSibling.classList.add('select-items-collapsed');
+                    currentlyUsedCustomSelect.classList.toggle('custom-select__selected--down');
                     currentlyUsedCustomSelect = selectedItem;
                 }
                 e.stopPropagation();
@@ -551,8 +561,8 @@
             currentQuestion = currentQuestionBatch[questionNumber];
 
             questionNum.innerHTML = `#${questionNumber + 1}`;
-            console.log(questionTitle, 'quesiotn title#@%@#%@#%@#%@@%@%');
-            questionTitle.replaceWith(document.createTextNode(currentQuestion.question));
+            console.log(questionNumber, 'question NUMBER', questionTitle, 'quesiotn title#@%@#%@#%@#%@@%@%');
+            questionTitle.innerHTML = currentQuestion.question;
 
             const correctAnswerInsertIndex = Math.floor(Math.random() * (1 + currentQuestion.incorrect_answers.length));
             const allAnswers = [...(currentQuestion.incorrect_answers)];
@@ -644,6 +654,7 @@
 
         function decideIfGoesInRecordHistory(newScoreInPercentage) {
             if (userRecordHistory.filter(record => record === null).length > 0 || userRecordHistory[10] < newScoreInPercentage) {
+                userRecordHistoryUpdated = true;
                 console.log('INDEED GOES INSIDE RECOERD HISTORY');
                 let insertIndex = 0;
                 while (insertIndex < 10/* && userRecordHistory[insertIndex + 1] != undefined*/) {
@@ -683,8 +694,10 @@
             }else {
                 recordHistoryHeading.innerHTML = "Bask in your past achievements";
                 console.log(userNonNullRecords, 'userNonNullRecordsssss ')
+                recordHistoryList.innerHTML = "";
                 let recordItem;
                 for( i=0 ; i<userNonNullRecords.length ; i++) {
+                    console.log(`${i}th recordDDDDDD`);
                     recordItem = document.createElement('li');
                     recordItem.className = "record-history__item";
                     recordItem.innerHTML = `${userNonNullRecords[i]}%`;

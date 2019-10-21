@@ -130,6 +130,7 @@
         font-size: 15rem;
         background: none;
         border-radius: 50%;
+        font-family: 'Alfa Slab One', cursive;
         margin-left: -3rem;
         // text-shadow: 1px 11px 14px rgba(0, 0, 0, 0.35);
         transform-origin: center;
@@ -148,6 +149,9 @@
         &:active,
         &:focus {
             outline: none;
+            transition: all .15s linear;
+            transform: rotateX(5deg);
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.35);
         }
     }
 }
